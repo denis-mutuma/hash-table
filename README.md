@@ -44,9 +44,9 @@ git clone https://github.com/denis-mutuma/hash-table.git
 // Create a Hash Table as follows with a specified size e.g., 256
 HashTable *ht = CreateHashTable(256);
 
-// Verify the hash table was created in memory, if not try again
+// Verify the hash table was created in memory, reduce the hash table size and try again
 if(!ht) {
-    // try again?
+    // try again
     // unsufficient memory?
 }
 
@@ -58,7 +58,7 @@ HashTableInsert(ht, 80, 170);
     .
 HashTableInsert(ht, 67, 213);
 
-// Get elements from the hash table and verify that is valid
+// Get elements from the hash table and verify that it is valid
 uint32_t value = HashTableGet(80);
 if(value != UINT32_MAX) {
     // do something with the value
@@ -69,7 +69,6 @@ HashTableDeleteKey(ht, 67);
 
 // Be sure to cleanup when done to avoid memory leaks
 HashTableDeleteTable(ht);
-
 ```
 
 
@@ -87,15 +86,16 @@ typedef struct
 ```
 to:
 
+```
 typedef struct
 {
     uint16_t key;
     uint16_t value;
     struct Node *next;
 } Node
+```
 
 Proceed to change othe functions in the header file and source file to match the desired type.
-
 
 # Contributing
 
